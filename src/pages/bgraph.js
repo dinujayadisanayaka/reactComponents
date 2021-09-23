@@ -5,6 +5,8 @@ export default class bgraph extends Component {
     render() {
         return (
             <div>
+                bgraph
+                
                 <BarGraph/>
             </div>
         )
