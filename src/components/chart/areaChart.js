@@ -65,7 +65,7 @@ export default class AreaChar extends Component {
 
   render() {
     return (
-        <div style={{ width: "99%", height: 300 }}>
+
           <ResponsiveContainer>
             <AreaChart
                 data={data}
@@ -88,7 +88,7 @@ export default class AreaChar extends Component {
               />
             </AreaChart>
           </ResponsiveContainer>
-        </div>
+
     );
   }
 }
