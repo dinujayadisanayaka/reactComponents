@@ -26,8 +26,10 @@ class LineChart extends Component {
                     borderColor: "rgba(255, 99, 132, 1)",
                     borderWidth: 3
                 }
-            ]
+            ],
+
         }
+
     };
 
     render() {
@@ -37,7 +39,7 @@ class LineChart extends Component {
                 <Line
                     data={this.state.data}
                     // width={50}
-                    height={55}
+                    height={95}
                     options={{
                         responsive: true,
                         maintainAspectRatio: true,
