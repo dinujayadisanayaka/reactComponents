@@ -1,137 +1,75 @@
-import { Doughnut } from 'react-chartjs-2';
-import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Typography,
-  colors,
-  useTheme
-} from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
+import React, { Component } from 'react';
+import {Canvas} from "canvas";
 
-const ChartjsPie = (props) => {
-  const theme = useTheme();
 
-  const data = {
-    datasets: [
-      {
-        data: [63, 15, 22],
-        backgroundColor: [
-          colors.indigo[500],
-          colors.red[600],
-          colors.orange[600]
-        ],
-        borderWidth: 8,
-        borderColor: colors.common.white,
-        hoverBorderColor: colors.common.white
-      }
-    ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
-  };
-
-  const options = {
-    animation: false,
-    cutoutPercentage: 80,
-    layout: { padding: 0 },
-    legend: {
-      display: false
-    },
-    maintainAspectRatio: false,
-    responsive: true,
-    tooltips: {
-      backgroundColor: theme.palette.background.paper,
-      bodyFontColor: theme.palette.text.secondary,
-      borderColor: theme.palette.divider,
-      borderWidth: 1,
-      enabled: true,
-      footerFontColor: theme.palette.text.secondary,
-      intersect: false,
-      mode: 'index',
-      titleFontColor: theme.palette.text.primary
+export default class ChartjsPie extends Component {
+  render() {
+    const options = {
+      theme: "light2",
+      title: {
+        text: "Comparison of Exchange Rates - 2017"
+      },
+      subtitles: [{
+        text: "GBP & USD to INR"
+      }],
+      axisY: {
+        prefix: "₹"
+      },
+      toolTip: {
+        shared: true
+      },
+      data: [
+        {
+          type: "area",
+          name: "GBP",
+          showInLegend: true,
+          xValueFormatString: "MMM YYYY",
+          yValueFormatString: "₹#,##0.##",
+          dataPoints: [
+            { x: new Date("2017- 01- 01"), y: 84.927},
+            { x: new Date("2017- 02- 01"), y: 82.609},
+            { x: new Date("2017- 03- 01"), y: 81.428},
+            { x: new Date("2017- 04- 01"), y: 83.259},
+            { x: new Date("2017- 05- 01"), y: 83.153},
+            { x: new Date("2017- 06- 01"), y: 84.180},
+            { x: new Date("2017- 07- 01"), y: 84.840},
+            { x: new Date("2017- 08- 01"), y: 82.671},
+            { x: new Date("2017- 09- 01"), y: 87.496},
+            { x: new Date("2017- 10- 01"), y: 86.007},
+            { x: new Date("2017- 11- 01"), y: 87.233},
+            { x: new Date("2017- 12- 01"), y: 86.276}
+          ]
+        },
+        {
+          type: "area",
+          name: "USD",
+          showInLegend: true,
+          xValueFormatString: "MMM YYYY",
+          yValueFormatString: "₹#,##0.##",
+          dataPoints: [
+            { x: new Date("2017- 01- 01"), y: 67.515},
+            { x: new Date("2017- 02- 01"), y: 66.725},
+            { x: new Date("2017- 03- 01"), y: 64.86},
+            { x: new Date("2017- 04- 01"), y: 64.29},
+            { x: new Date("2017- 05- 01"), y: 64.51},
+            { x: new Date("2017- 06- 01"), y: 64.62},
+            { x: new Date("2017- 07- 01"), y: 64.2},
+            { x: new Date("2017- 08- 01"), y: 63.935},
+            { x: new Date("2017- 09- 01"), y: 65.31},
+            { x: new Date("2017- 10- 01"), y: 64.75},
+            { x: new Date("2017- 11- 01"), y: 64.49},
+            { x: new Date("2017- 12- 01"), y: 63.84}
+          ]
+        }
+      ]
     }
-  };
-
-  const devices = [
-    {
-      title: 'Desktop',
-      value: 63,
-      icon: LaptopMacIcon,
-      color: colors.indigo[500]
-    },
-    {
-      title: 'Tablet',
-      value: 15,
-      icon: TabletIcon,
-      color: colors.red[600]
-    },
-    {
-      title: 'Mobile',
-      value: 23,
-      icon: PhoneIcon,
-      color: colors.orange[600]
-    }
-  ];
-
-  return (
-    <Card {...props}>
-      <CardHeader title="Traffic by Device" />
-      <Divider />
-      <CardContent>
-        <Box
-          sx={{
-            height: 300,
-            position: 'relative'
-          }}
-        >
-          <Doughnut
-            data={data}
-            options={options}
+    return (
+        <div>
+          <Canvas options = {options}
+              /* onRef={ref => this.chart = ref} */
           />
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            pt: 2
-          }}
-        >
-          {devices.map(({
-            color,
-            icon: Icon,
-            title,
-            value
-          }) => (
-            <Box
-              key={title}
-              sx={{
-                p: 1,
-                textAlign: 'center'
-              }}
-            >
-              <Icon color="action" />
-              <Typography
-                color="textPrimary"
-                variant="body1"
-              >
-                {title}
-              </Typography>
-              <Typography
-                style={{ color }}
-                variant="h2"
-              >
-                {value}
-                %
-              </Typography>
-            </Box>
-          ))}
-        </Box>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default ChartjsPie;
+          {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+        </div>
+    );
+  }
+}
