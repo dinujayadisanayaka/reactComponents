@@ -3,12 +3,12 @@ import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import { makeStyles } from "@material-ui/core/styles";
 
-import navigationConfig from "../../oftadeh-configs/navigationConfig";
+import navigationConfig from "./navigationConfig";
 
-import OftadehNavGroup from "./sections/OftadehNavGroup";
-import OftadehNavCollapse from "./sections/OftadehNavCollapse";
-import OftadehNavItem from "./sections/OftadehNavItem";
-import OftadehNavLink from "./sections/OftadehNavLink";
+import OftadehNavGroup from "./OftadehNavGroup";
+import OftadehNavCollapse from "./OftadehNavCollapse";
+import OftadehNavItem from "./OftadehNavItem";
+import OftadehNavLink from "./OftadehNavLink";
 import { Typography } from "@material-ui/core";
 import clsx from "clsx";
 

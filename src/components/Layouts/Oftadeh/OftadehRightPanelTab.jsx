@@ -6,10 +6,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import NavigationContext from "../../context/NavigationContext";
-import NotificationsContainer from "../Notifications/Notifications-container";
-import MessagesContainer from "../Messages/Messages-container";
-import OftadehToday from "../OftadehToday/OftadehToday";
+import NavigationContext from "./NavigationContext";
+import NotificationsContainer from "./Notifications-container";
+import MessagesContainer from "./Messages-container";
+import OftadehToday from "./OftadehToday";
 import { Button } from "@material-ui/core";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
